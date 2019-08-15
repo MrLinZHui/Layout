@@ -35,10 +35,10 @@
                         next.setDisabled(true);
                         var num = Ext.getCmp('rabish').getValue().inputValue;
                         Ext.getCmp('rabish1').items.items[num].setValue(true);
-                        for(let i = 0; i<  Ext.getCmp('checkboxgroup').getValue().length;i++){
-                            var num1 = Ext.getCmp('checkboxgroup').getValue()[i].inputValue;
-                            Ext.getCmp('checkboxgroup1').items.items[num1].setValue(true);
-                        }
+                        Ext.getCmp('checkboxgroup1').items.items.forEach(item=>item.setValue(false));
+                        Ext.getCmp('checkboxgroup').getValue().map(value =>{
+                            Ext.getCmp('checkboxgroup1').items.items[value.inputValue].setValue(true);
+                        })
                     }
                 } else if (activeId == 'card-2') {
                     if (direction == -1) {
